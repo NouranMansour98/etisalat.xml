@@ -18,7 +18,9 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v4.2.2
       with: 
-          distribution: jdk
+          java-version: '11'
+          distribution: 'temurin'
+          cache: 'maven'
 
     - name: Build with Maven
       run: mvn clean install
