@@ -11,9 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import java.time.Duration;
 import java.util.List;
 
@@ -30,9 +28,9 @@ public class WebAppAutomationTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
         // Initialize reporting
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent-report.html");
+        ExtentSparkReporter spark = new ExtentSparkReporter("Spark.html");
         extentReports = new ExtentReports();
-        extentReports.attachReporter(htmlReporter);
+        extentReports.attachReporter(spark);
     }
 
     @Test
