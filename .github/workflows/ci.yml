@@ -16,14 +16,18 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Set up JDK 21
-      uses: actions/setup-java@v4.2.2
-      with: 
-          java-version: '21'
-          distribution: 'temurin'
-          cache: 'maven'
-
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        cache: 'maven'
+        cache-dependency-path: 'etisalat.xml/pom.xml' # optional
+    
     - name: Build with Maven
-      run: mvn clean install
+      run: mvn -B package --file pom.xml
+
+   # - name: Build with Maven
+   #   run: mvn clean install
 
     - name: Download ChromeDriver
       run: |
