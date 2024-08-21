@@ -1,4 +1,4 @@
-package com.example.tests;
+package etisalat.automation;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
