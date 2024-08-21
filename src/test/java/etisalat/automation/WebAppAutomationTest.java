@@ -16,6 +16,10 @@ import com.aventstack.extentreports.ExtentTest;
 import java.time.Duration;
 import java.util.List;
 
+// NEW
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
 public class WebAppAutomationTest {
     public WebDriver driver;
     public WebDriverWait wait;
@@ -24,8 +28,14 @@ public class WebAppAutomationTest {
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webDriver.chrome.driver", "path/to/chromedriver");
+
+
+// In your setUp method
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+
+//        System.setProperty("webDriver.chrome.driver", "path/to/chromedriver");
+//        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 
         // Initialize reporting
@@ -40,6 +50,7 @@ public class WebAppAutomationTest {
 
         // Open login page
         driver.get("https://the-internet.herokuapp.com/login");
+        // driver.get("what");
         extentTest.info("Opened login page.");
 
         // Login
@@ -48,7 +59,7 @@ public class WebAppAutomationTest {
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
 
         usernameField.sendKeys("NouranHM");
-        passwordField.sendKeys("Letsgo123!");
+        passwordField.sendKeys("NouranHM!");
         loginButton.click();
 
         // Wait for secure area
@@ -71,14 +82,21 @@ public class WebAppAutomationTest {
         }
 
         // Navigate to inputs page and submit form
+        // driver.get("https://the-internet.herokuapp.com/inputs");
+        // extentTest.info("Opened inputs page.");
+        // WebElement inputField = driver.findElement(By.cssSelector("input[type='number']"));
+        // WebElement submitButton = driver.findElement(By.cssSelector("button"));
+
+        // inputField.sendKeys("12345");
+        // submitButton.click();
+        // extentTest.info("Filled out and submitted form.");
+
         driver.get("https://the-internet.herokuapp.com/inputs");
         extentTest.info("Opened inputs page.");
-        WebElement inputField = driver.findElement(By.cssSelector("input[type='number']"));
-        WebElement submitButton = driver.findElement(By.cssSelector("button"));
+        WebElement inputField = driver.findElement(By.tagName("input"));
 
-        inputField.sendKeys("12345");
-        submitButton.click();
-        extentTest.info("Filled out and submitted form.");
+        inputField.sendKeys("123");
+        extentTest.info("Filled out input field.");
 
         // Log out
         driver.get("https://the-internet.herokuapp.com/logout");
