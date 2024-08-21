@@ -70,8 +70,8 @@ public class WebAppAutomationTest {
         WebElement passwordField = driver.findElement(By.id("password"));
         WebElement loginButton = driver.findElement(By.cssSelector("button[type='submit']"));
 
-        usernameField.sendKeys("NouranHM");
-        passwordField.sendKeys("Letsgo123!");
+        usernameField.sendKeys("tomsmith");
+        passwordField.sendKeys("SuperSecretPassword!");
 //        usernameField.sendKeys("NouranHM");
 //        passwordField.sendKeys("Letsgo123!");
         loginButton.click();
