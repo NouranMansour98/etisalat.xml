@@ -14,14 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
-        <!-- Selenium Java Dependency -->
+     
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.0.0</version>
         </dependency>
 
-        <!-- TestNG Dependency -->
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -29,18 +29,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Reporting Dependency (e.g., ExtentReports) -->
+ 
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
         </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.4.0</version>
-            <scope>compile</scope>
-        </dependency>
+       
     </dependencies>
 
 </project>
