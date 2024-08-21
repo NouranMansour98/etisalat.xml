@@ -15,9 +15,10 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.ExtentTest;
 import java.time.Duration;
 import java.util.List;
-
+import org.openqa.selenium.chrome.ChromeOptions;
 // NEW
 import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 
 public class WebAppAutomationTest {
@@ -29,10 +30,15 @@ public class WebAppAutomationTest {
     @BeforeClass
     public void setUp() {
 
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless"); // Run in headless mode
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920x1080");
 
-// In your setUp method
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
 
 //        System.setProperty("webDriver.chrome.driver", "path/to/chromedriver");
 //        driver = new ChromeDriver();
